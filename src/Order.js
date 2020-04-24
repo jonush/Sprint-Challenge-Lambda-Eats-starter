@@ -1,20 +1,16 @@
-import React from 'react'
+import React from "react";
 
 function Order({ details }) {
-  return (
-    <div>
-      <h2>{details.name}</h2>
-      <h2>Email: {details.size}</h2>
-      <div>
-            <h2>Toppings:</h2>
-            <p>{details.cheese}</p>
-            <p>{details.pepperoni}</p>
-            <p>{details.pineapple}</p>
-            <p>{details.bacon}</p>
-      </div>
-      <h2>Special Instructions: {details.special}</h2>
-    </div>
-  )
+    return (
+        <div className="confirmed">
+            <h1>We got your order!</h1>
+            <h2>We'll notify you when your pizza is on the way.</h2>
+            <h3>Order for: {details.name}</h3>
+            <h3>Size: {details.size}</h3>
+
+            <pre>{JSON.stringify({details}, null, 2)}</pre>
+        </div>
+    );
 }
 
 export default Order;

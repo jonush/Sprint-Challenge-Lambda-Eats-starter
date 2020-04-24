@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import * as yup from 'yup';
+import { Link } from 'react-router-dom';
 import Order from './Order';
 
 const url = 'https://reqres.in/api/users';
@@ -72,17 +73,8 @@ function Form(props) {
         
             setValues({
                 ...values,
-                [name]: value,
+                [name]: event.target.type === "checkbox" ? event.target.checked : value 
             });
-    }
-
-    const onCheckboxChange = event => {
-        const checked = event.target.checked;
-
-        setValues({
-            ...values,
-            [event.target.name]: checked,
-        })
     }
 
     const onSubmit = event => {
@@ -101,25 +93,22 @@ function Form(props) {
         setValues({
             name: '',
             size: '',
-            toppings: {
-                cheese: false,
-                pepperoni: false,
-                pineapple: false,
-                bacon: false,
-            },
             special: '',
         });
     }
 
     return (
-        <div>
+        <div className="container">
+            <Link to='/'>Home</Link>
+            <h1>Order your Pizza</h1>
+
             <form>
                 <div>
                     {errors.name}
                     {errors.size}
                 </div>
 
-                <label>
+                <label className="text">
                     Name:&nbsp;
                     <input
                         value={values.name}
@@ -129,32 +118,33 @@ function Form(props) {
                     />
                 </label>
 
-                <label>
+                <label className="text">
                     Pizza Size:&nbsp;
                     <select
                         value={values.size}
                         onChange={onInputChange}
                         name='size'>
                             <option defaultValue=''>Select a size</option>
-                            <option value='medium'>Medium</option>
-                            <option value='large'>Large</option>
+                            <option value='medium'>Medium 12"</option>
+                            <option value='large'>Large 16"</option>
+                            <option value='xlarge'>X-Large 20"</option>
                         </select>
                 </label>
 
                 <p>Choose Your Toppings:&nbsp;</p>
                 <label>
                     <input
-                        value={values.cheese}
-                        onChange={onCheckboxChange}
+                        //value={values.cheese}
+                        onChange={onInputChange}
                         name='cheese'
                         type='checkbox'
                     /> Cheese
                 </label>
 
-                <label>
+                <label className="text">
                     <input
-                        value={values.pepperoni}
-                        onChange={onCheckboxChange}
+                        //value={values.pepperoni}
+                        onChange={onInputChange}
                         name='pepperoni'
                         type='checkbox'
                     /> Pepperoni
@@ -162,8 +152,8 @@ function Form(props) {
 
                 <label>
                     <input
-                        value={values.pineapple}
-                        onChange={onCheckboxChange}
+                        //value={values.pineapple}
+                        onChange={onInputChange}
                         name='pineapple'
                         type='checkbox'
                     /> Pineapple
@@ -171,14 +161,14 @@ function Form(props) {
 
                 <label>
                     <input
-                        value={values.bacon}
-                        onChange={onCheckboxChange}
+                        //value={values.bacon}
+                        onChange={onInputChange}
                         name='bacon'
                         type='checkbox'
                     /> Bacon
                 </label>
 
-                <label>
+                <label className="text">
                     Special Instructions:&nbsp;
                     <input
                         value={values.special}
@@ -190,7 +180,7 @@ function Form(props) {
 
                 <button onClick={onSubmit} disabled={formDisabled}>Submit Order</button>
             </form>
-
+        
             {customer.map((order, index) => {
                 return <Order key={index} details={order} />
             })}
