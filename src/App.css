@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main { 
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgb(255, 0, 89);
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 5rem;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: url(./Pizza.jpg);
+  width: 100%;
+  height: 79vh;
+}
+
+.home h2{
+  font-size: 8rem;
+  color: black;
+  margin: 0 auto;
+  background: rgb(114, 114, 114, 0.6);
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  padding: 20rem 0 1rem;
+}
+
+.order {
+  font-size: 3rem;
+  text-decoration: none;
+  font-weight: bold;
+  color:black;
+  background: rgb(114, 114, 114, 0.6);
+  width: 100%;
+  text-align: center;
+  padding: 3rem 0 10rem;
+}
+
+.order:hover {
+  color: rgb(255, 0, 89);
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 2rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(255, 0, 89);
+  border-radius: 10px;
+  margin: 2rem auto;
+  padding: 2rem 8rem;
+}
+
+label{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: .5rem 0;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(201, 201, 201);
+  padding: .3rem;
+}
+
+select {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+form button {
+  padding: .3rem;
+  margin: 1rem auto;
+  border: none;
+  background-color: rgb(255, 0, 89);
+  border: 2px solid rgb(255, 0, 89);
+  border-radius: 5px;
   color: white;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+form button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(255, 0, 89);
+  border: 2px solid rgb(255, 0, 89);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.confirmed h1{
+  color: rgb(255, 0, 89);
 }
